@@ -17,7 +17,7 @@ pipeline {
                     app = docker.build("kameswarnayak/cicd-test")
 #                    app.inside {
 #                        sh 'echo $(curl localhost:8080)'
-                    }
+#                    }
                 }
             }
         }
