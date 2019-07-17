@@ -15,9 +15,6 @@ pipeline {
             steps {
                 script {
                     app = docker.build("kameswarnayak/train-schedule")
-                    app.inside() {
-                        sh 'echo $PATH'
-                    }
                 }
             }
         }
