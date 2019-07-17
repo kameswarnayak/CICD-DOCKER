@@ -15,8 +15,22 @@ pipeline {
             steps {
                 script {
                     app = docker.build("kameswarnayak/train-schedule")
+                      }
+                 }
+              }
+       stage('Push Docker Image') {
+            when {
+                branch 'master'
+            }
+            steps {
+                script {
+                    docker.withRegistry('https://registry.hub.docker.com', 'docker_hub') {
+                        app.push("${env.BUILD_NUMBER}")
+                        app.push("latest")
+                    }
                 }
             }
         }
      }
 }
+
